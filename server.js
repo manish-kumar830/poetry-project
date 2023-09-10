@@ -1,6 +1,7 @@
 
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 require("./DbConnection/db_conn.js");
 const ShayariModel = require("./Model/shayarimodel.js");
 const CategoryModel = require("./Model/categorymodel.js");
