@@ -1,12 +1,20 @@
 
 const express = require("express");
+const dotenv = require("dotenv");
 require("./DbConnection/db_conn.js");
 const ShayariModel = require("./Model/shayarimodel.js");
 const CategoryModel = require("./Model/categorymodel.js");
+
+
+dotenv.config();
+
 const app = express();
-
-
 app.use(express.json());
+app.use(cors());
+
+app.get("/", (req, res) => {
+   res.send("<h1>Welcome to poetry panel</h1>");
+ });
 
 /*
 ==================================================
@@ -237,6 +245,6 @@ app.put("/update/shayari/category/:ctg", async (req, resp) => {
 
 */
 
+const PORT = process.env.PORT || 8080;
 
-
-app.listen(5000);
+app.listen(PORT);
